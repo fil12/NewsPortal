@@ -8,21 +8,28 @@
 
 namespace App\Controller;
 
+use App\Categories\CategoriesYamlStorage;
+use App\Service\Categories\CategoriesPostsServiceInterface;
 use App\Service\Categories\FakeCategoriesService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 
 class CategoryController extends AbstractController
 {
-    public function index(FakeCategoriesService $service): Response
+    public function index(): Response
     {
-        $categories = $service->getCategories();
+        $yamlStorage = new CategoriesYamlStorage();
+        $categories = $yamlStorage->getData();
 
-        return $this->render('categories/categories.html.twig', array('categories' => $categories));
+        return $this->render('categories/categories.html.twig', ['categories' => $categories]);
     }
 
-    public function show($slug, FakeCategoriesService $service): Response
+    public function show($slug, CategoriesPostsServiceInterface $service): Response
     {
-//        $category = $service->
+        $yamlStorage = new CategoriesYamlStorage();
+        $category = $yamlStorage->get($slug);
+        $categoryPosts = $service->getPosts();
+
+        return $this->render('categories/category.html.twig', ['category' => $category, 'posts' => $categoryPosts]);
     }
 }

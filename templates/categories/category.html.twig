@@ -4,20 +4,26 @@
 
 {% endblock %}
 {% block body %}
-    <div class="d-md-flex flex-md-equal w-100 my-md-3 pl-md-3">
-        <div class="bg-light mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
-            <div class="my-3 p-3">
-                <h2 class="display-5">Another headline</h2>
-                <p class="lead">And an even wittier subheading.</p>
+
+    <div class="col-lg-12 text-center">
+        <img class="rounded-circle" src="{{ asset('images/')}}{{ category.image }}" alt="Generic placeholder image" width="140" height="140">
+        <h1>{{ category.title }} </h1>
+        <h3>{{ category.description }}</h3>
+    </div><!-- /.col-lg-4 -->
+
+    <div class="row">
+        {% for key, post in posts %}
+        <div class="d-md-flex flex-md-equal col-lg-4">
+            <div class="bg-light mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
+                <div class="my-3 p-3">
+                    <h2 class="display-5">{{ post.title }}</h2>
+                    <p class="lead">{{ post.description }}</p>
+                </div>
+                <div class="bg-white shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;">
+                    <img  src="{{ post.image }}" alt="Generic placeholder image" width="100%">
+                </div>
             </div>
-            <div class="bg-white shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;"></div>
         </div>
-        <div class="bg-light mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
-            <div class="my-3 py-3">
-                <h2 class="display-5">Another headline</h2>
-                <p class="lead">And an even wittier subheading.</p>
-            </div>
-            <div class="bg-white shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;"></div>
-        </div>
+        {% endfor %}
     </div>
 {% endblock %}
