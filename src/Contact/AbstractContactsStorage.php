@@ -13,7 +13,7 @@ use App\Service\Contacts\ContactsStrorageInterface;
 
 abstract class AbstractContactsStorage implements ContactsStrorageInterface
 {
-    private const FILE_ROOT = __DIR__.'/data/';
+    private const FILE_ROOT = __DIR__ . '/../../data/';
     protected $file;
     protected $data;
 
@@ -28,12 +28,12 @@ abstract class AbstractContactsStorage implements ContactsStrorageInterface
 
     public function set($data)
     {
-        $this->encode( $this->file, $this->data);
+        $this->encode();
     }
 
     public function get($key)
     {
-        $decodingData = $this->decode($this->file);
+        $decodingData = $this->decode();
 
         return $decodingData[$key] ?? null;
     }

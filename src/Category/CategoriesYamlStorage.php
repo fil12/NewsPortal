@@ -12,7 +12,7 @@ use Symfony\Component\Yaml\Yaml;
 
 class CategoriesYamlStorage extends CategoriesStorage
 {
-    private const FILE_NAME = __DIR__.'/data/categories.yml';
+    private const FILE_NAME = __DIR__ . '/../../data/categories.yml';
 
     /**
      * @param $key
