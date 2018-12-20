@@ -1,6 +1,9 @@
 index:
     path: /
     controller: App\Controller\DefaultController::index
+contacts:
+    path: /contacts
+    controller: App\Controller\DefaultController::contacts
 categories:
     path: /categories
     controller: App\Controller\CategoryController::index

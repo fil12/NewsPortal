@@ -2,11 +2,7 @@
 
 namespace App\Dto;
 
-/**
- * Data transfer object for Post entity.
- *
- * @author Vladimir Kuprienko <vldmr.kuprienko@gmail.com>
- */
+
 final class Post
 {
     private $image;

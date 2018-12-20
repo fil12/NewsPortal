@@ -6,7 +6,7 @@
  * Time: 19:12
  */
 
-namespace App\Categories;
+namespace App\Category;
 
 
 use App\Service\Categories\CategoryStorageInterface;

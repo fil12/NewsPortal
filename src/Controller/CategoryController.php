@@ -8,7 +8,7 @@
 
 namespace App\Controller;
 
-use App\Categories\CategoriesYamlStorage;
+use App\Category\CategoriesYamlStorage;
 use App\Service\Categories\CategoriesPostsServiceInterface;
 use App\Service\Categories\FakeCategoriesService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;

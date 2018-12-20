@@ -42,8 +42,5 @@ interface CategoryStorageInterface
      * @param string $key Name of key.
      */
     public function remove($key);
-    /**
-     * Removes all keys and their values from the storage.
-     */
-    public function clear();
+
 }

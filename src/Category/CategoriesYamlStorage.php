@@ -6,7 +6,7 @@
  * Time: 19:21
  */
 
-namespace App\Categories;
+namespace App\Category;
 
 use Symfony\Component\Yaml\Yaml;
 
