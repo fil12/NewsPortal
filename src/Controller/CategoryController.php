@@ -3,32 +3,33 @@
  * Created by PhpStorm.
  * User: Саша
  * Date: 15.12.2018
- * Time: 12:13
+ * Time: 12:13.
  */
 
 namespace App\Controller;
 
-use App\Category\CategoriesYamlStorage;
-use App\Service\Categories\CategoriesPostsServiceInterface;
-use App\Service\Categories\FakeCategoriesService;
+use App\Repository\category\CategoryRepositoryInterface;
+use App\Repository\post\PostRepositoryInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 
 class CategoryController extends AbstractController
 {
-    public function index(): Response
+    public function index(CategoryRepositoryInterface $categoryRepository, PostRepositoryInterface $postRepository): Response
     {
-        $yamlStorage = new CategoriesYamlStorage();
-        $categories = $yamlStorage->getData();
+        $categories = $categoryRepository->findAllIsPublished();
+        $posts = $postRepository->findAllWithCategories();
 
-        return $this->render('categories/categories.html.twig', ['categories' => $categories]);
+        return $this->render('categories/categories.html.twig', [
+            'categories' => $categories,
+            'posts' => $posts,
+            ]);
     }
 
-    public function show($slug, CategoriesPostsServiceInterface $service): Response
+    public function show($slug, CategoryRepositoryInterface $categoryRepository): Response
     {
-        $yamlStorage = new CategoriesYamlStorage();
-        $category = $yamlStorage->get($slug);
-        $categoryPosts = $service->getPosts();
+        $category = $categoryRepository->getCategoryBySlug($slug);
+        $categoryPosts = $categoryRepository->findAllPostsByCategory($slug);
 
         return $this->render('categories/category.html.twig', ['category' => $category, 'posts' => $categoryPosts]);
     }

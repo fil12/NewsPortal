@@ -2,7 +2,6 @@
 
 namespace App\Dto;
 
-
 final class Post
 {
     private $image;
@@ -10,14 +9,13 @@ final class Post
     private $title;
     private $publicationDate;
 
-
-
     public function __construct(string $title, string $description, \DateTimeInterface $publicationDate)
     {
         $this->title = $title;
         $this->description = $description;
         $this->publicationDate = $publicationDate;
     }
+
     public function getTitle()
     {
         return $this->title;
@@ -27,6 +25,7 @@ final class Post
     {
         $this->title = $title;
     }
+
     public function setImage(string $src): void
     {
         $this->image = $src;

@@ -5,7 +5,6 @@ namespace App\Service\Categories;
 use App\Dto\Post;
 use App\Post\PostsCollection;
 
-
 final class FakeCategoriesPostsService implements CategoriesPostsServiceInterface
 {
     private const POSTS_COUNT = 6;
@@ -18,7 +17,7 @@ final class FakeCategoriesPostsService implements CategoriesPostsServiceInterfac
         $faker = \Faker\Factory::create();
         $collection = new PostsCollection();
 
-        for ($i = 0; $i < self::POSTS_COUNT; $i++) {
+        for ($i = 0; $i < self::POSTS_COUNT; ++$i) {
             $dto = new Post(
                 $faker->name,
                 $faker->text,

@@ -3,7 +3,7 @@
  * Created by PhpStorm.
  * User: Саша
  * Date: 15.12.2018
- * Time: 18:58
+ * Time: 18:58.
  */
 
 namespace App\Service\Categories;

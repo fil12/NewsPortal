@@ -3,44 +3,45 @@
  * Created by PhpStorm.
  * User: Саша
  * Date: 15.12.2018
- * Time: 19:13
+ * Time: 19:13.
  */
 
 namespace App\Service\Categories;
-
 
 interface CategoryStorageInterface
 {
     /**
      * Stores value by key.
      *
-     * @param string  $key   Name of the key.
-     * @param mixed   $value Value to store.
+     * @param string $key   name of the key
+     * @param mixed  $value value to store
      */
     public function set($key, $value);
+
     /**
      * Gets value by key.
      *
-     * @param string     $key     Name of the key.
-     * @param null|mixed $default Default value.
+     * @param string     $key     name of the key
+     * @param mixed|null $default default value
      *
      * @return mixed Can be of any type: int, string, null, array, e.g.
-     * If value does not exist for provided key, $default will be returned.
+     *               If value does not exist for provided key, $default will be returned.
      */
     public function get($key, $default = null);
+
     /**
      * Checks whether value is exist by key.
      *
-     * @param string $key Name of key.
+     * @param string $key name of key
      *
-     * @return bool Returns true if key exists, false otherwise.
+     * @return bool returns true if key exists, false otherwise
      */
     public function has($key): bool;
+
     /**
      * Removes value by key.
      *
-     * @param string $key Name of key.
+     * @param string $key name of key
      */
     public function remove($key);
-
 }

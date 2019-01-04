@@ -3,7 +3,7 @@
  * Created by PhpStorm.
  * User: Саша
  * Date: 15.12.2018
- * Time: 19:21
+ * Time: 19:21.
  */
 
 namespace App\Category;
@@ -12,11 +12,12 @@ use Symfony\Component\Yaml\Yaml;
 
 class CategoriesYamlStorage extends CategoriesStorage
 {
-    private const FILE_NAME = __DIR__.'/data/categories.yml';
+    private const FILE_NAME = __DIR__.'/../../data/categories.yml';
 
     /**
      * @param $key
      * @param $value
+     *
      * @return mixed|void
      */
     public function setData($data)
@@ -28,11 +29,13 @@ class CategoriesYamlStorage extends CategoriesStorage
     /**
      * @param $key
      * @param null $default
+     *
      * @return mixed|string
      */
     public function getData()
     {
         $data = Yaml::parseFile(self::FILE_NAME);
+
         return \is_array($data) ? $data : [];
     }
 }

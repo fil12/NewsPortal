@@ -12,10 +12,10 @@
             <div class="row">
                 {% for key, category in categories %}
                 <div class="col-lg-4">
-                    <img class="rounded-circle" src="{{ asset('images/')}}{{ category.image }}" alt="Generic placeholder image" width="140" height="140">
-                    <h2>{{  category.title  }} </h2>
+                    {#<img class="rounded-circle" src="{{ asset('images/')}}{{ category.image }}" alt="Generic placeholder image" width="140" height="140">#}
+                    <h2>{{  category.name  }} </h2>
                     <p>{{ category.description  }}</p>
-                    <p><a class="btn btn-secondary" href="{{ path('category', {'slug': category.title }) }}" role="button">View details &raquo;</a></p>
+                    <p><a class="btn btn-secondary" href="{{ path('category', {'slug': category.slug }) }}" role="button">View details &raquo;</a></p>
                 </div><!-- /.col-lg-4 -->
                 {% endfor %}
             </div><!-- /.row -->
